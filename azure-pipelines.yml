@@ -16,7 +16,6 @@ steps:
     script: |
       echo "Hello"
       echo "World!"
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -31,8 +30,12 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.11'
     jdkArchitectureOption: 'x64'
+    sonarQubeRunAnalysis: true
+    checkStyleRunAnalysis: true
+    findBugRunAnalysis: true
+    spotBugRunAnalysis: true
+    failWhenBugsFound: true    
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-
 
